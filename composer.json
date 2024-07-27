@@ -1,0 +1,26 @@
+{
+    "name": "mage-condition/contact-us-tracker",
+    "description": "ContactUsTracker",
+    "minimum-stability": "stable",
+    "require": {
+        "mage-condition/core": "^1.0.1",
+        "php": "^8.0"
+    },
+    "type": "magento2-module",
+    "version": "0.9.0",
+    "authors": [
+        {
+            "name": "Oleksandr",
+            "email": "wincondition2911@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MageCondition\\ContactUsTracker\\": ""
+        }
+    }
+}

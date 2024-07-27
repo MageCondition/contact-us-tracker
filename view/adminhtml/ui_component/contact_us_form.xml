@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">contact_us_form.contact_us_form_data_source</item>
+            <item name="deps" xsi:type="string">contact_us_form.contact_us_form_data_source</item>
+        </item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">contact_us_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/</item>
+            </item>
+            <item name="delete" xsi:type="string">MageCondition\ContactUsTracker\Block\Adminhtml\Form\Edit\DeleteButton</item>
+        </item>
+    </argument>
+    <dataSource name="contact_us_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">MageCondition\ContactUsTracker\Ui\DataProvider\Form\DataProvider</argument>
+            <argument name="name" xsi:type="string">contact_us_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label translate="true">Customer Feedback Details</label>
+            <collapsible>false</collapsible>
+        </settings>
+        <field name="name" formElement="input" sortOrder="10">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <label translate="true">Name</label>
+            </settings>
+        </field>
+        <field name="created_at" formElement="input" sortOrder="20">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <label translate="true">Created At</label>
+            </settings>
+        </field>
+        <field name="store_name" formElement="input" sortOrder="30">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <label translate="true">Store</label>
+            </settings>
+        </field>
+        <field name="email" formElement="input" sortOrder="40">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <label translate="true">Email</label>
+            </settings>
+        </field>
+        <field name="phone" formElement="input" sortOrder="50">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <label translate="true">Phone</label>
+            </settings>
+        </field>
+        <field name="comment" formElement="textarea" sortOrder="60">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <label translate="true">Comment</label>
+            </settings>
+        </field>
+    </fieldset>
+</form>

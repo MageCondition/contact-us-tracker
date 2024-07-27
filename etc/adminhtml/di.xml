@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<!--    <virtualType name="MageCondition\ContactUsTracker\Model\ResourceModel\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">-->
+<!--        <arguments>-->
+<!--            <argument name="mainTable" xsi:type="string">contact_us_tracker</argument>-->
+<!--            <argument name="resourceModel" xsi:type="string">MageCondition\ContactUsTracker\Model\ResourceModel\ContactUs</argument>-->
+<!--        </arguments>-->
+<!--    </virtualType>-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="contact_us_listing_data_source" xsi:type="string">MageCondition\ContactUsTracker\Model\ResourceModel\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

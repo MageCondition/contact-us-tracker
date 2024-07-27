@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageCondition_ContactUsTracker::contact_us_tracker" title="Contact Us Tracker" translate="title" module="MageCondition_ContactUsTracker" sortOrder="10" parent="MageCondition_Core::menu" resource="MageCondition_ContactUsHistory::contact_us" />
+        <add id="MageCondition_ContactUsTracker::contact_us_list" title="List" translate="title" module="MageCondition_ContactUsTracker" sortOrder="20" parent="MageCondition_ContactUsTracker::contact_us_tracker" action="contact_us/tracker/index" resource="MageCondition_ContactUsHistory::contact_us"/>
+    </menu>
+</config>
