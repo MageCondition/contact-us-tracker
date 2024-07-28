@@ -7,14 +7,17 @@
         "php": "^8.0"
     },
     "type": "magento2-module",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "authors": [
         {
             "name": "Oleksandr",
             "email": "wincondition2911@gmail.com"
         }
     ],
-    "license": "MIT",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
     "autoload": {
         "files": [
             "registration.php"
