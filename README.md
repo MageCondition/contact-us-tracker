@@ -1,4 +1,4 @@
-# Contact Us Tracker for Magento 2
+# Magento 2. Contact Us Tracker
 
 ![Magento 2](https://img.shields.io/badge/Magento-2-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -40,6 +40,12 @@ Follow these steps to install the module:
 
 1. Navigate to `MageCondition -> Contact Us Tracker -> List` in the Magento admin panel.
 2. View and manage the data submitted through the Contact Us form.
+
+## Compatibility
+
+- PHP 8+
+- Magento Open Source (CE) 2.4.*
+- Adobe Commerce (EE) 2.4.*
 
 ## Support
 

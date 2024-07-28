@@ -70,7 +70,7 @@
         </field>
         <field name="comment" formElement="textarea" sortOrder="60">
             <settings>
-                <elementTmpl>ui/form/element/text</elementTmpl>
+                <elementTmpl>MageCondition_ContactUsTracker/form/element/comment</elementTmpl>
                 <label translate="true">Comment</label>
             </settings>
         </field>

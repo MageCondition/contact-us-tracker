@@ -8,11 +8,14 @@ use Exception;
 use MageCondition\ContactUsTracker\Model\Config;
 use MageCondition\ContactUsTracker\Model\Repository;
 use Magento\Contact\Model\Mail as Subject;
+use Magento\Framework\DataObject;
 use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
 
 class Mail
 {
+    private const DATA_TO_UNSET = ['name', 'email', 'telephone', 'comment', 'form_key', 'hideit'];
+
     public function __construct(
         protected Repository $contactUsRepository,
         protected StoreManagerInterface $storeManager,
@@ -33,22 +36,16 @@ class Mail
         }
 
         $contactUs = $this->contactUsRepository->createEmptyModel();
-        $data = $variables['data'];
+        $data = clone $variables['data'];
         $additionalInfo = [];
 
-        $contactUs->setName($data['name'] ?? '');
-        unset($data['name']);
+        $contactUs->setName($data->getName() ?? '');
+        $contactUs->setEmail($data->getEmail() ?? '');
+        $contactUs->setPhone($data->getTelephone() ?? '');
+        $contactUs->setComment($data->getComment() ?? '');
+        $this->unsetExtraData($data);
 
-        $contactUs->setEmail($data['email'] ?? '');
-        unset($data['email']);
-
-        $contactUs->setPhone($data['telephone'] ?? '');
-        unset($data['telephone']);
-
-        $contactUs->setComment($data['comment'] ?? '');
-        unset($data['comment']);
-
-        foreach ($data as $key => $value) {
+        foreach ($data->getData() as $key => $value) {
             $additionalInfo[$key] = $value;
         }
 
@@ -64,5 +61,13 @@ class Mail
         }
 
         return [$replyTo, $variables];
+    }
+
+    /**
+     * Unsets extra data from the data object.
+     */
+    private function unsetExtraData(DataObject $data): void
+    {
+        $data->unsetData(self::DATA_TO_UNSET);
     }
 }

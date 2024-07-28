@@ -58,7 +58,7 @@ abstract class ContactUsTracker extends Action
     }
 
     /**
-     * Get edit redirect
+     * Get view redirect
      */
     protected function getViewRedirect(): Redirect
     {
