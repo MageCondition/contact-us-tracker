@@ -1,6 +1,6 @@
 {
     "name": "mage-condition/contact-us-tracker",
-    "description": "Magento 2. Contact Us Tracker. Contact Us Tracker. Contact Us Grid",
+    "description": "Magento 2. Contact Us Tracker. Contact Us History. Contact Us Grid",
     "minimum-stability": "stable",
     "require": {
         "mage-condition/core": "^1.0.1",
