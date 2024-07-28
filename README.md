@@ -55,4 +55,4 @@ You can also reach us via email at [wincondition2911@gmail.com](mailto:wincondit
 
 ## License
 
-This module is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This module is licensed under the Open Software License (OSL). See the [LICENSE](https://github.com/MageCondition/contact-us-tracker/blob/main/LICENSE.txt) file for more details.
