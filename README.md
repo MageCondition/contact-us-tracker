@@ -1,7 +1,8 @@
 # Magento 2. Contact Us Tracker
 
 ![Magento 2](https://img.shields.io/badge/Magento-2-brightgreen.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3654c6325c2d4217aefae674e622476a)](https://app.codacy.com/gh/MageCondition/contact-us-tracker/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+![License](https://img.shields.io/badge/license-OSL-blue.svg)
 
 ## Overview
 
