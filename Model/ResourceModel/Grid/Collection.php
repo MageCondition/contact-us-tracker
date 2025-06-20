@@ -43,8 +43,8 @@ class Collection extends SearchResult
         $items = parent::getItems();
 
         foreach ($items as $item) {
-            if (strlen($item->getComment()) > 75) {
-                $item->setComment(substr($item->getComment(), 0, 75) . '...');
+            if ($item->getComment() !== null && strlen((string) $item->getComment()) > 75) {
+                $item->setComment(substr((string) $item->getComment(), 0, 75) . '...');
             }
         }
 
