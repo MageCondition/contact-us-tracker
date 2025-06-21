@@ -5,6 +5,9 @@
             <general>
                 <enabled>1</enabled>
             </general>
+            <email>
+                <template>contact_us_tracker_reply</template>
+            </email>
         </contact_us>
     </default>
 </config>

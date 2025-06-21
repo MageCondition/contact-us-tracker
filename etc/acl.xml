@@ -5,6 +5,7 @@
             <resource id="Magento_Backend::admin">
                 <resource id="MageCondition_Core::magecondition">
                     <resource id="MageCondition_ContactUsHistory::contact_us" title="Contact Us History" translate="title" sortOrder="10" />
+                    <resource id="MageCondition_ContactUsReply::contact_us_reply" title="Contact Us Reply" translate="title" sortOrder="20" />
                 </resource>
             </resource>
         </resources>

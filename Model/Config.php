@@ -22,4 +22,6 @@ class Config
     {
         return $this->storeConfig->isSetFlag(self::XML_PATH_ENABLED, ScopeInterface::SCOPE_STORE);
     }
+
+    // Add config to get Email data
 }

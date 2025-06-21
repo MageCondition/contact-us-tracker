@@ -15,4 +15,24 @@
             <column name="entity_id"/>
         </constraint>
     </table>
+    <table name="contact_us_feedback" resource="default" engine="innodb" comment="Replies to Contact-Us messages">
+        <column name="entity_id"        xsi:type="int"     unsigned="true"  identity="true" nullable="false" comment="Primary ID"/>
+        <column name="contact_id"       xsi:type="int"     unsigned="true"                 nullable="false" comment="Contact Entity ID"/>
+        <column name="admin_user_id"    xsi:type="int"     unsigned="true"                 nullable="false" comment="Admin User ID"/>
+        <column name="admin_user_name"  xsi:type="varchar" length="255"                    nullable="false" comment="Admin User Name"/>
+        <column name="reply_text"       xsi:type="text"                                    nullable="false" comment="Reply Text"/>
+        <column name="created_at"       xsi:type="timestamp" default="CURRENT_TIMESTAMP"   nullable="false" on_update="false" comment="Created At"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_FEEDBACK_CONTACT"
+                    table="contact_us_feedback" column="contact_id"
+                    referenceTable="contact_us_tracker" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FK_FEEDBACK_ADMIN"
+                    table="contact_us_feedback" column="admin_user_id"
+                    referenceTable="admin_user" referenceColumn="user_id"
+                    onDelete="SET NULL"/>
+    </table>
 </schema>

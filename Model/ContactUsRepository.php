@@ -9,7 +9,7 @@ use MageCondition\ContactUsTracker\Model\ResourceModel\ContactUs as ContactUsRes
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 
-class Repository
+class ContactUsRepository
 {
     public function __construct(
         protected ContactUsFactory $contactUsFactory,

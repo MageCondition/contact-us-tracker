@@ -26,6 +26,11 @@
             <argument name="name" xsi:type="string">contact_us_form_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="*/*/save"/>
+                </item>
+            </argument>
         </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
@@ -84,5 +89,51 @@
                 </imports>
             </settings>
         </field>
+    </fieldset>
+    <fieldset name="replies">
+        <settings>
+            <label translate="true">Replies</label>
+            <collapsible>false</collapsible>
+            <visible>false</visible>
+            <imports>
+                <link name="visible">${ $.provider }:data.replies</link>
+            </imports>
+        </settings>
+        <field name="replies_pretty" formElement="textarea" sortOrder="10">
+            <settings>
+                <elementTmpl>MageCondition_ContactUsTracker/form/element/comment</elementTmpl>
+                <label translate="true">Reply log</label>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="reply_form">
+        <settings>
+            <label translate="true">Reply</label>
+            <collapsible>false</collapsible>
+        </settings>
+        <field name="reply_text" formElement="textarea" sortOrder="10">
+            <settings>
+                <dataType>text</dataType>
+                <elementTmpl>ui/form/element/textarea</elementTmpl>
+                <label translate="true">Your reply</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <button name="send_reply">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Send</item>
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="actions" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="targetName" xsi:type="string">contact_us_form.contact_us_form</item>
+                            <item name="actionName" xsi:type="string">save</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </button>
     </fieldset>
 </form>

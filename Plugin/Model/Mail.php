@@ -6,7 +6,7 @@ namespace MageCondition\ContactUsTracker\Plugin\Model;
 
 use Exception;
 use MageCondition\ContactUsTracker\Model\Config;
-use MageCondition\ContactUsTracker\Model\Repository;
+use MageCondition\ContactUsTracker\Model\ContactUsRepository;
 use Magento\Contact\Model\Mail as Subject;
 use Magento\Framework\DataObject;
 use Magento\Store\Model\StoreManagerInterface;
@@ -17,10 +17,10 @@ class Mail
     private const DATA_TO_UNSET = ['name', 'email', 'telephone', 'comment', 'form_key', 'hideit'];
 
     public function __construct(
-        protected Repository $contactUsRepository,
+        protected ContactUsRepository   $contactUsRepository,
         protected StoreManagerInterface $storeManager,
-        protected Config $config,
-        protected LoggerInterface $logger
+        protected Config                $config,
+        protected LoggerInterface       $logger
     ) {
     }
 

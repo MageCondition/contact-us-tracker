@@ -89,6 +89,7 @@
                 <label translate="true">Store</label>
             </settings>
         </column>
+<!--        need to add a Replyed column (Yes/No). If feedback exists in table for the record = YES, if not exist = NO-->
         <column name="created_at">
             <settings>
                 <filter>dateRange</filter>

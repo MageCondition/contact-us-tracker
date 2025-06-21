@@ -54,13 +54,16 @@ class DataProvider extends AbstractDataProvider
 
                 $pretty = implode("\n", $prettyLines);
             }
-            
+
             if ($pretty) {
                 $data['additional_info_pretty'] = $pretty;
             }
 
             $data['store_name'] = $storeMapping[$data['store_id']] ?? $data['store_id'];
             $this->loadedData[$item->getId()] = $data;
+
+            //Add replyed (Yes/No) value
+            // Add feedback info for the form
         }
 
         return $this->loadedData;
