@@ -41,9 +41,26 @@ class DataProvider extends AbstractDataProvider
         $items = $this->collection->getItems();
         $storeMapping = $this->getStoreMapping();
         foreach ($items as $item) {
-            $storeId = $item->getStoreId();
-            $this->loadedData[$item->getId()] = $item->getData();
-            $this->loadedData[$item->getId()]['store_name'] = $storeMapping[$storeId] ?? $storeId;
+            $data = $item->getData();
+
+            $pretty = '';
+            if (!empty($data['additional_info'])) {
+                $decoded = json_decode((string) $data['additional_info'], true) ?: [];
+                $prettyLines = [];
+
+                foreach ($decoded as $key => $value) {
+                    $prettyLines[] = $key . ': ' . (is_scalar($value) ? $value : json_encode($value));
+                }
+
+                $pretty = implode("\n", $prettyLines);
+            }
+            
+            if ($pretty) {
+                $data['additional_info_pretty'] = $pretty;
+            }
+
+            $data['store_name'] = $storeMapping[$data['store_id']] ?? $data['store_id'];
+            $this->loadedData[$item->getId()] = $data;
         }
 
         return $this->loadedData;

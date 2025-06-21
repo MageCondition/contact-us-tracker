@@ -74,5 +74,15 @@
                 <label translate="true">Comment</label>
             </settings>
         </field>
+        <field name="additional_info_pretty" formElement="textarea" sortOrder="70">
+            <settings>
+                <elementTmpl>MageCondition_ContactUsTracker/form/element/comment</elementTmpl>
+                <label translate="true">Additional Info</label>
+                <visible>false</visible>
+                <imports>
+                    <link name="visible">${ $.provider }:data.additional_info_pretty</link>
+                </imports>
+            </settings>
+        </field>
     </fieldset>
 </form>
