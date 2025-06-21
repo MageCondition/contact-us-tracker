@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MageCondition\ContactUsTracker\Ui\DataProvider\Form;
 
+use MageCondition\ContactUsTracker\Model\FeedbackRepository;
 use MageCondition\ContactUsTracker\Model\ResourceModel\ContactUs\Collection;
 use MageCondition\ContactUsTracker\Model\ResourceModel\ContactUs\CollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
@@ -22,6 +23,7 @@ class DataProvider extends AbstractDataProvider
         string $requestFieldName,
         CollectionFactory $collectionFactory,
         protected StoreManagerInterface $storeManager,
+        protected FeedbackRepository $feedbackRepository,
         array $meta = [],
         array $data = []
     ) {
@@ -60,10 +62,24 @@ class DataProvider extends AbstractDataProvider
             }
 
             $data['store_name'] = $storeMapping[$data['store_id']] ?? $data['store_id'];
-            $this->loadedData[$item->getId()] = $data;
 
-            //Add replyed (Yes/No) value
-            // Add feedback info for the form
+            $replies = $this->feedbackRepository->getByContactId((int) $item->getId());
+            $data['replies'] = !empty($replies);
+
+            if ($replies) {
+                $prettyReplies = [];
+                foreach ($replies as $reply) {
+                    $prettyReplies[] = sprintf(
+                        '[%s] %s: %s',
+                        $reply->getCreatedAt(),
+                        $reply->getAdminUserName(),
+                        $reply->getReplyText()
+                    );
+                }
+                $data['replies_pretty'] = implode("\n", $prettyReplies);
+            }
+
+            $this->loadedData[$item->getId()] = $data;
         }
 
         return $this->loadedData;

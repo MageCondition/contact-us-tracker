@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
-    <template id="contact_us_tracker_reply" label="Contact Us – Reply to customer" file="contact_us_reply.html" type="html" module="MageCondition_ContactUsTracker" area="frontend"/>
+    <template id="contact_us_email_template" label="Contact Us – Reply to customer" file="contact_us_reply.html" type="html" module="MageCondition_ContactUsTracker" area="frontend"/>
 </config>

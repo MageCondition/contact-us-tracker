@@ -41,10 +41,25 @@ class Collection extends SearchResult
     public function getItems(): array
     {
         $items = parent::getItems();
+        $ids = [];
 
         foreach ($items as $item) {
             if ($item->getComment() !== null && strlen((string) $item->getComment()) > 75) {
                 $item->setComment(substr((string) $item->getComment(), 0, 75) . '...');
+            }
+
+            $ids[] = (int) $item->getId();
+        }
+
+        if ($ids) {
+            $connection = $this->getConnection();
+            $select = $connection->select()
+                ->from('contact_us_feedback', ['contact_id'])
+                ->where('contact_id IN (?)', $ids);
+            $repliedIds = $connection->fetchCol($select);
+
+            foreach ($items as $item) {
+                $item->setData('replied', in_array((int) $item->getId(), $repliedIds) ? __('Yes') : __('No'));
             }
         }
 

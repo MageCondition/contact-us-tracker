@@ -43,7 +43,7 @@ abstract class ContactUsTracker extends Action
      */
     protected function getId(): int
     {
-        return (int) $this->getRequest()->getParam('id');
+        return (int) $this->getRequest()->getParam('id') ?: (int) $this->getRequest()->getParam('entity_id');
     }
 
     /**
