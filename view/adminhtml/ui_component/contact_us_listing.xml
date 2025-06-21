@@ -89,6 +89,13 @@
                 <label translate="true">Store</label>
             </settings>
         </column>
+        <column name="replied">
+            <settings>
+                <filter>select</filter>
+                <dataType>text</dataType>
+                <label translate="true">Replied</label>
+            </settings>
+        </column>
         <column name="created_at">
             <settings>
                 <filter>dateRange</filter>

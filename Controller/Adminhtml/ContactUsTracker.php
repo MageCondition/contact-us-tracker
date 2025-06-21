@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MageCondition\ContactUsTracker\Controller\Adminhtml;
 
-use MageCondition\ContactUsTracker\Model\Repository;
+use MageCondition\ContactUsTracker\Model\ContactUsRepository;
 use MageCondition\ContactUsTracker\Model\ResourceModel\ContactUs as ContactUsResource;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -16,11 +16,11 @@ use Psr\Log\LoggerInterface;
 abstract class ContactUsTracker extends Action
 {
     public function __construct(
-        protected PageFactory $resultPageFactory,
-        protected Repository $repository,
-        protected ContactUsResource $resource,
-        protected LoggerInterface $logger,
-        Context $context
+        protected PageFactory         $resultPageFactory,
+        protected ContactUsRepository $repository,
+        protected ContactUsResource   $resource,
+        protected LoggerInterface     $logger,
+        Context                       $context
     ) {
         parent::__construct($context);
     }
@@ -43,7 +43,7 @@ abstract class ContactUsTracker extends Action
      */
     protected function getId(): int
     {
-        return (int) $this->getRequest()->getParam('id');
+        return (int) $this->getRequest()->getParam('id') ?: (int) $this->getRequest()->getParam('entity_id');
     }
 
     /**

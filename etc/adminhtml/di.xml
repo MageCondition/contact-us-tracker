@@ -4,6 +4,7 @@
         <arguments>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="feedbackRepository" xsi:type="object">MageCondition\ContactUsTracker\Model\FeedbackRepository</argument>
         </arguments>
     </type>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">

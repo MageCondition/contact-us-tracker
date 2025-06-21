@@ -1,0 +1,28 @@
+<!--@subject {{trans "We have answered your feedback from %store_name" store_name=$store.getFrontendName()}} @-->
+<!--@vars {"var customer_name":"Customer Name",
+          "var reply_text":"Reply Text",
+          "var original_comment":"Original Comment",
+          "var store":"Store Object",
+          "var admin_name":"Admin User Name"} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p>{{trans "Hello %customer_name," customer_name=$customer_name}}</p>
+
+<p>{{trans "Thank you for your message. Here is our reply:"}}</p>
+
+{{var reply_text|raw}}
+
+<p></p>
+<p>{{trans "Your original comment:"}}</p>
+
+<blockquote style="border-left:3px solid #ccc; margin:10px 0; padding-left:10px;">
+    {{var original_comment|raw}}
+</blockquote>
+
+<p></p>
+<p>{{trans "Best regards,"}}<br/>
+    {{var admin_name}}<br/>
+    <strong>{{var store.getFrontendName()}}</strong></p>
+
+{{template config_path="design/email/footer_template"}}

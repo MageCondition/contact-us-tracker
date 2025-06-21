@@ -5,6 +5,10 @@
             <general>
                 <enabled>1</enabled>
             </general>
+            <email>
+                <template>contact_us_email_template</template>
+                <sender>general</sender>
+            </email>
         </contact_us>
     </default>
 </config>
